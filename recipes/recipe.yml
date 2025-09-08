@@ -17,25 +17,37 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
+  - type: dnf
+    repos:
+      cleanup: true # clean up added repos after module is done
+      files:
+        - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+        - https://repository.mullvad.net/rpm/stable/mullvad.repo
+      copr:
+        - atim/starship
+      keys:
+        - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+    optfix: # performs symlinking for `/opt/` to allow certain packages to install
+      - brave.com
+    install:
+      skip-unavailable: true # skip unavailable packages
+      packages:
+        - repo: brave-browser
+          packages:
+            - brave-browser
+        - repo: mullvad
+          packages:
+            - mullvad-vpn
+        - starship
+        - micro
+    remove:
+      packages:
+        - firefox
+        - firefox-langpacks
+
   - type: bling
     install:
       - 1password
-
-  - type: rpm-ostree
-    repos:
-      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-      - https://repository.mullvad.net/rpm/beta/mullvad.repo
-      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-    keys:
-      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-    optfix:
-      - brave.com
-      - Mullvad VPN
-    install:
-      - micro
-      - starship
-      - brave-browser
-      - mullvad-vpn
 
   - type: brew
     brew-analytics: false
