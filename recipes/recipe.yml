@@ -33,18 +33,13 @@ modules:
       skip-unavailable: true # skip unavailable packages
       skip-broken: true
       packages:
+        - liberation-fonts
+        - mullvad-vpn
+        - starship
+        - micro
         - repo: brave-browser
           packages:
             - brave-browser
-        - repo: mullvad
-          packages:
-            - mullvad-vpn
-        - starship
-        - micro
-    remove:
-      packages:
-        - firefox
-        - firefox-langpacks
 
   - type: bling
     install:
