@@ -31,6 +31,7 @@ modules:
       - brave.com
     install:
       skip-unavailable: true # skip unavailable packages
+      skip-broken: true
       packages:
         - repo: brave-browser
           packages:
