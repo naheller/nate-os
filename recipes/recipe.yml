@@ -35,6 +35,7 @@ modules:
       skip-unavailable: true # skip unavailable packages
       packages:
         - mullvad-vpn
+        - liberation-fonts # required by brave
         - repo: brave-browser
           packages:
             - brave-browser
