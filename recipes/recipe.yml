@@ -22,8 +22,8 @@ modules:
       - 1password
 
   - type: dnf
-    cleanup: true # clean up added repos after module is done
     repos:
+      cleanup: true # clean up added repos after module is done
       files:
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
         - https://repository.mullvad.net/rpm/stable/mullvad.repo
