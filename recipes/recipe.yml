@@ -6,7 +6,7 @@ name: nate-os
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/kinoite-main
+base-image: ghcr.io/wayblueorg/hyprland
 image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -17,35 +17,21 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
-  - type: dnf
-    repos:
-      cleanup: true # clean up added repos after module is done
-      files:
-        - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-        - https://repository.mullvad.net/rpm/stable/mullvad.repo
-      copr:
-        - atim/starship
-      keys:
-        - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-    optfix: # performs symlinking for `/opt/` to allow certain packages to install
-      - brave.com
-    install:
-      skip-unavailable: true # skip unavailable packages
-      skip-broken: true
-      packages:
-        - liberation-fonts
-        - mullvad-vpn
-        - starship
-        - micro
-        - repo: brave-browser
-          packages:
-            - brave-browser
-
   - type: bling
     install:
       - 1password
 
-  - type: brew
-    brew-analytics: false
+  - type: rpm-ostree
+    repos:
+      - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+      - https://repository.mullvad.net/rpm/beta/mullvad.repo
+    keys:
+      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+    optfix:
+      - brave.com
+      - Mullvad VPN
+    install:
+      - brave-browser
+      - mullvad-vpn
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
