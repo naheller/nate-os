@@ -34,6 +34,7 @@ modules:
     install:
       skip-unavailable: true # skip unavailable packages
       packages:
+        - micro
         - syncthing
         - mullvad-vpn
         - liberation-fonts # required by brave
