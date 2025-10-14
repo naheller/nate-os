@@ -6,8 +6,8 @@ name: nate-os
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/base-main
-image-version: latest # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/ublue-os/silverblue-main
+image-version: 43 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -27,8 +27,6 @@ modules:
       files:
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
         - https://repository.mullvad.net/rpm/stable/mullvad.repo
-      copr:
-        - ryanabx/cosmic-epoch
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     # optfix: # performs symlinking for `/opt/` to allow certain packages to install
@@ -36,7 +34,6 @@ modules:
     install:
       skip-unavailable: true # skip unavailable packages
       packages:
-        - cosmic-desktop
         - mullvad-vpn
         - liberation-fonts # required by brave
         - repo: brave-browser
@@ -47,7 +44,5 @@ modules:
     fonts:
       nerd-fonts:
         - JetBrainsMono
-      google-fonts:
-        - Inter
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
