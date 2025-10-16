@@ -6,7 +6,7 @@ name: nate-os
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/wayblueorg/sway
 image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -27,6 +27,8 @@ modules:
       files:
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
         - https://repository.mullvad.net/rpm/stable/mullvad.repo
+      copr:
+        - yalter/niri
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     # optfix: # performs symlinking for `/opt/` to allow certain packages to install
@@ -34,6 +36,7 @@ modules:
     install:
       skip-unavailable: true # skip unavailable packages
       packages:
+        - niri
         - mullvad-vpn
         - liberation-fonts # required by brave
         - repo: brave-browser
