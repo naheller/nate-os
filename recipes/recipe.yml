@@ -37,8 +37,9 @@ modules:
       skip-unavailable: true # skip unavailable packages
       packages:
         - niri
-        # - sway
-        # - greetd
+        - sway
+        - greetd
+        - cosmic-panel
         - helix
         - mullvad-vpn
         - liberation-fonts # required by brave
