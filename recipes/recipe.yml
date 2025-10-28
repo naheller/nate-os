@@ -38,8 +38,9 @@ modules:
       packages:
         - niri
         - sway
-        - gdm
+        - greetd
         - helix
+        - micro
         - mullvad-vpn
         - liberation-fonts # required by brave
         - repo: brave-browser
