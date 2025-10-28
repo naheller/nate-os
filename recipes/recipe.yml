@@ -38,7 +38,7 @@ modules:
       packages:
         - niri
         - sway
-        - sddm
+        - gdm
         - helix
         - mullvad-vpn
         - liberation-fonts # required by brave
