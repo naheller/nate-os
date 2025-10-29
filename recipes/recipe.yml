@@ -35,11 +35,9 @@ modules:
     #   - brave.com
     install:
       skip-unavailable: true # skip unavailable packages
-      install-weak-deps: false
       packages: 
         - niri # Includes: alacritty, fuzzel, mako, waybar, swaylock, swayidle...
         - labwc # Backup in case niri crashes
-        - greetd
         - helix # Includes wl-clipboard
         - mullvad-vpn
         - liberation-fonts # Required by brave for some reason
