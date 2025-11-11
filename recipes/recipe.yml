@@ -17,10 +17,6 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
-  - type: bling
-    install:
-      - 1password
-
   - type: dnf
     repos:
       cleanup: true # clean up added repos after module is done
@@ -28,7 +24,7 @@ modules:
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
         - https://repository.mullvad.net/rpm/stable/mullvad.repo
       copr:
-        - yalter/niri
+        - ryanabx/cosmic-epoch
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     # optfix: # performs symlinking for `/opt/` to allow certain packages to install
@@ -36,14 +32,23 @@ modules:
     install:
       skip-unavailable: true # skip unavailable packages
       packages: 
-        - niri # Includes: alacritty, fuzzel, mako, waybar, swaylock, swayidle...
-        - labwc # Backup in case niri crashes
-        - helix # Includes wl-clipboard
+        - cosmic-desktop
         - mullvad-vpn
         - liberation-fonts # Required by brave for some reason
         - repo: brave-browser
           packages:
             - brave-browser
+    group-install:
+      packages:
+        - virtualization
+  
+  - type: bling
+    install:
+      - 1password
+
+  - type: brew
+    nofile-limits: true # increase nofile limits
+    brew-analytics: false # disable telemetry
 
   - type: fonts
     fonts:
