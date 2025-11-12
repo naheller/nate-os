@@ -33,17 +33,18 @@ modules:
       skip-unavailable: true # skip unavailable packages
       packages: 
         # - cosmic-desktop
-        - @cosmic-desktop-environment
+        # - @cosmic-desktop-environment
         - mullvad-vpn
         # - liberation-fonts # Required by brave for some reason
         - brave-browser
         # - repo: brave-browser
         #   packages:
         #     - brave-browser
-        - @virtualization
-    # group-install:
-    #   packages:
-    #     - virtualization
+        # - @virtualization
+    group-install:
+      packages:
+        - cosmic-desktop-environment
+        - virtualization
   
   - type: bling
     install:
