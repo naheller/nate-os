@@ -23,8 +23,8 @@ modules:
       files:
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
         - https://repository.mullvad.net/rpm/stable/mullvad.repo
-      copr:
-        - ryanabx/cosmic-epoch
+      # copr:
+      #   - ryanabx/cosmic-epoch
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     # optfix: # performs symlinking for `/opt/` to allow certain packages to install
@@ -32,15 +32,18 @@ modules:
     install:
       skip-unavailable: true # skip unavailable packages
       packages: 
-        - cosmic-desktop
+        # - cosmic-desktop
+        - @cosmic-desktop-environment
         - mullvad-vpn
-        - liberation-fonts # Required by brave for some reason
-        - repo: brave-browser
-          packages:
-            - brave-browser
-    group-install:
-      packages:
-        - virtualization
+        # - liberation-fonts # Required by brave for some reason
+        - brave-browser
+        # - repo: brave-browser
+        #   packages:
+        #     - brave-browser
+        - @virtualization
+    # group-install:
+    #   packages:
+    #     - virtualization
   
   - type: bling
     install:
