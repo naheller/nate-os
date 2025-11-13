@@ -39,7 +39,7 @@ modules:
 
   - type: default-flatpaks
     configurations:
-      install:
+      - install:
         - io.github.flattool.Warehouse
   
   - type: bling
