@@ -30,6 +30,7 @@ modules:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     install:
       skip-unavailable: true # skip unavailable packages
+      packages: 
         - mullvad-vpn
         - brave-browser
     group-install:
@@ -38,9 +39,10 @@ modules:
 
   - type: default-flatpaks
     configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
-        scope: user
-        install:
+      # - notify: true # Send notification after install/uninstall is finished (Default: true)
+      #   scope: user (Default: user)
+        # If no repo information is specified, Flathub will be used by default
+        install: # system flatpaks we want all users to have and not remove
           - io.github.flattool.Warehouse
   
   - type: bling
