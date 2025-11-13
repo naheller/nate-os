@@ -38,8 +38,10 @@ modules:
 
   - type: default-flatpaks
     configurations:
-      install:
-        - io.github.flattool.Warehouse
+      - notify: true # Send notification after install/uninstall is finished (true/false)
+        scope: user
+        install:
+          - io.github.flattool.Warehouse
   
   - type: bling
     install:
