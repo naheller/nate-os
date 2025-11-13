@@ -54,4 +54,8 @@ modules:
       google-fonts:
         - Inter
 
+  - type: script
+    snippets:
+      - "systemctl --user add-wants niri.service dms"
+
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
