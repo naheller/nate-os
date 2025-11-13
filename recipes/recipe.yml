@@ -39,8 +39,9 @@ modules:
 
   - type: default-flatpaks
     configurations:
-      - install:
-        - io.github.flattool.Warehouse
+      - scope: user
+        install:
+          - io.github.flattool.Warehouse
   
   - type: bling
     install:
