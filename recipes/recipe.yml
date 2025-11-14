@@ -36,12 +36,17 @@ modules:
     group-install:
       packages:
         - virtualization
+    remove:
+      packages:
+        - firefox
+        - firefox-langpacks
+        - gnome-software # using Warehouse instead
 
   - type: default-flatpaks
     configurations:
-      - scope: user
-        install:
+      - install:
           - io.github.flattool.Warehouse
+          - com.github.tchx84.Flatseal
   
   - type: bling
     install:
