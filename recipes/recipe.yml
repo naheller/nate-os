@@ -6,7 +6,7 @@ name: nate-os
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/ublue-os/bluefin-dx
 image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -34,35 +34,33 @@ modules:
       packages: 
         - mullvad-vpn
         - brave-browser
-        - foot
-    group-install:
-      packages:
-        - virtualization
-    remove:
-      packages:
-        - firefox
-        - firefox-langpacks
-        # - gnome-software # using Warehouse instead
+    # group-install:
+    #   packages:
+    #     - virtualization
+    # remove:
+    #   packages:
+    #     - firefox
+    #     - firefox-langpacks
 
-  - type: default-flatpaks
-    configurations:
-      - install:
-          - io.github.kolunmi.Bazaar
-          - io.github.flattool.Warehouse
-          - com.github.tchx84.Flatseal
+  # - type: default-flatpaks
+  #   configurations:
+  #     - install:
+  #         - io.github.flattool.Warehouse
+  #         - com.github.tchx84.Flatseal
+  #         - com.ranfdev.DistroShelf
   
   - type: bling
     install:
       - 1password
 
-  - type: brew
-    nofile-limits: true # increase nofile limits
-    brew-analytics: false # disable telemetry
+  # - type: brew
+  #   nofile-limits: true # increase nofile limits
+  #   brew-analytics: false # disable telemetry
 
-  - type: fonts
-    fonts:
-      nerd-fonts:
-        - JetBrainsMono
+  # - type: fonts
+  #   fonts:
+  #     nerd-fonts:
+  #       - JetBrainsMono
       # google-fonts:
       #   - Inter
 
