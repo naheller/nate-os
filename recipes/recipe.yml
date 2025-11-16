@@ -28,11 +28,13 @@ modules:
       #   - avengemedia/dms
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+        # - https://packages.microsoft.com/keys/microsoft.asc
     install:
       skip-unavailable: true # skip unavailable packages
       packages: 
         - mullvad-vpn
         - brave-browser
+        - foot
     group-install:
       packages:
         - virtualization
@@ -40,11 +42,12 @@ modules:
       packages:
         - firefox
         - firefox-langpacks
-        - gnome-software # using Warehouse instead
+        # - gnome-software # using Warehouse instead
 
   - type: default-flatpaks
     configurations:
       - install:
+          - io.github.kolunmi.Bazaar
           - io.github.flattool.Warehouse
           - com.github.tchx84.Flatseal
   
