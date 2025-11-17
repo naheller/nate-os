@@ -23,20 +23,22 @@ modules:
       files:
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
         - https://repository.mullvad.net/rpm/stable/mullvad.repo
+        # - https://packages.microsoft.com/yumrepos/vscode
       # copr:
       #   - yalter/niri
       #   - avengemedia/dms
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
         # - https://packages.microsoft.com/keys/microsoft.asc
+        # - https://packages.microsoft.com/keys/microsoft.asc
     install:
       skip-unavailable: true # skip unavailable packages
       packages: 
         - mullvad-vpn
         - brave-browser
-    group-install:
-      packages:
-        - virtualization
+    # group-install:
+    #   packages:
+    #     - virtualization
     remove:
       packages:
         - firefox
