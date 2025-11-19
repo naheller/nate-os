@@ -6,7 +6,7 @@ name: nate-os
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/blue-build/base-images/fedora-cosmic
+base-image: ghcr.io/blue-build/base-images/fedora-kinoite
 image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -30,10 +30,11 @@ modules:
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
         # - https://packages.microsoft.com/keys/microsoft.asc
-        # - https://packages.microsoft.com/keys/microsoft.asc
     install:
       skip-unavailable: true # skip unavailable packages
       packages: 
+        - kate
+        - yakuake
         - mullvad-vpn
         - brave-browser
     # group-install:
@@ -44,19 +45,19 @@ modules:
         - firefox
         - firefox-langpacks
 
-  - type: default-flatpaks
-    configurations:
-      - notify: false
-        scope: user
-        repo:
-          name: flathub
-          title: Flathub
-      - notify: false
-        scope: user
-        repo:
-          name: cosmic
-          title: COSMIC
-          url: https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
+  # - type: default-flatpaks
+  #   configurations:
+  #     - notify: false
+  #       scope: user
+  #       repo:
+  #         name: flathub
+  #         title: Flathub
+  #     - notify: false
+  #       scope: user
+  #       repo:
+  #         name: cosmic
+  #         title: COSMIC
+  #         url: https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
   
   - type: bling
     install:
