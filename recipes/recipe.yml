@@ -51,7 +51,7 @@ modules:
         scope: user
         repo:
           name: flathub
-          title: Flathub (User)
+          title: Flathub
   #     - notify: false
   #       scope: user
   #       repo:
@@ -69,10 +69,12 @@ modules:
 
   - type: fonts
     fonts:
-      nerd-fonts:
-        - JetBrainsMono
+      # nerd-fonts:
+      #   - JetBrainsMono
       google-fonts:
-        - Inter
+        # - Inter
+        - IBM Plex Sans
+        - JetBrains Mono
 
   # - type: script
   #   snippets:
