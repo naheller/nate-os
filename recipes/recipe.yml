@@ -45,13 +45,13 @@ modules:
         - firefox
         - firefox-langpacks
 
-  # - type: default-flatpaks
-  #   configurations:
-  #     - notify: false
-  #       scope: user
-  #       repo:
-  #         name: flathub
-  #         title: Flathub
+  - type: default-flatpaks
+    configurations:
+      - notify: false
+        scope: user
+        repo:
+          name: flathub
+          title: Flathub (User)
   #     - notify: false
   #       scope: user
   #       repo:
