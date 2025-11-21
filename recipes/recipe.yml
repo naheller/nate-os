@@ -6,7 +6,7 @@ name: nate-os
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/blue-build/base-images/fedora-kinoite
+base-image: ghcr.io/blue-build/base-images/fedora-silverblue
 image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -33,8 +33,6 @@ modules:
     install:
       skip-unavailable: true # skip unavailable packages
       packages: 
-        - kate
-        - yakuake
         - mullvad-vpn
         - brave-browser
     # group-install:
@@ -45,13 +43,13 @@ modules:
         - firefox
         - firefox-langpacks
 
-  - type: default-flatpaks
-    configurations:
-      - notify: false
-        scope: user
-        repo:
-          name: flathub
-          title: Flathub
+  # - type: default-flatpaks
+  #   configurations:
+  #     - notify: false
+  #       scope: user
+  #       repo:
+  #         name: flathub
+  #         title: Flathub
   #     - notify: false
   #       scope: user
   #       repo:
@@ -69,12 +67,12 @@ modules:
 
   - type: fonts
     fonts:
-      # nerd-fonts:
-      #   - JetBrainsMono
-      google-fonts:
-        # - Inter
-        - IBM Plex Sans
-        - JetBrains Mono
+      nerd-fonts:
+        - JetBrainsMono
+      # google-fonts:
+      #   - Inter
+      #   - IBM Plex Sans
+      #   - JetBrains Mono
 
   # - type: script
   #   snippets:
