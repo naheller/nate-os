@@ -47,9 +47,9 @@ modules:
     configurations:
       - notify: false
         scope: user
-        repo:
-          name: flathub
-          title: Flathub (yooser)
+        # repo:
+        #   name: flathub
+        #   title: Flathub (yooser)
         # install:
         #   - io.github.flattool.Warehouse
       # - notify: false
