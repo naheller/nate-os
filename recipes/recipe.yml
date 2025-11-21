@@ -43,19 +43,21 @@ modules:
         - firefox
         - firefox-langpacks
 
-  # - type: default-flatpaks
-  #   configurations:
-  #     - notify: false
-  #       scope: user
-  #       repo:
-  #         name: flathub
-  #         title: Flathub
-  #     - notify: false
-  #       scope: user
-  #       repo:
-  #         name: cosmic
-  #         title: COSMIC
-  #         url: https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
+  - type: default-flatpaks
+    configurations:
+      - notify: false
+        scope: user
+        repo:
+          name: flathub
+          title: Flathub (yooser)
+        # install:
+        #   - io.github.flattool.Warehouse
+      # - notify: false
+      #   scope: user
+      #   repo:
+      #     name: cosmic
+      #     title: COSMIC
+      #     url: https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
   
   - type: bling
     install:
