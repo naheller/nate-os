@@ -37,6 +37,7 @@ modules:
         - mullvad-vpn
         - brave-browser
         - yakuake
+        - foot
     # group-install:
     #   packages:
     #     - virtualization
