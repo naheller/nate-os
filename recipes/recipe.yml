@@ -7,7 +7,6 @@ description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/zirconium-dev/zirconium
-# base-image: ghcr.io/ublue-os/kinoite-main
 image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -16,48 +15,22 @@ modules:
   - type: files
     files:
       - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+        destination: / # copies files/system/* into your image's root folder /
 
   - type: dnf
     repos:
-      cleanup: true # clean up added repos after module is done
       files:
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
         - https://repository.mullvad.net/rpm/stable/mullvad.repo
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     install:
-      skip-unavailable: true # skip unavailable packages
       packages: 
         - mullvad-vpn
         - brave-browser
-
-  - type: default-flatpaks
-    configurations:
-      - notify: false
-        scope: user
-        install:
-          - io.github.flattool.Warehouse
   
   - type: bling
     install:
       - 1password
-
-  # - type: brew
-  #   nofile-limits: true # increase nofile limits
-  #   brew-analytics: false # disable telemetry
-
-  # - type: fonts
-  #   fonts:
-  #     nerd-fonts:
-  #       - JetBrainsMono
-  #     google-fonts:
-  #       - Inter
-  #       - IBM Plex Sans
-  #       - JetBrains Mono
-
-  # - type: script
-  #   snippets:
-  #     - "systemctl --user add-wants niri.service dms"
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
