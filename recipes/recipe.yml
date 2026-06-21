@@ -27,7 +27,7 @@ modules:
     install:
       packages: 
         - mullvad-vpn
-        - brave-browser
+        - brave-origin
   
   - type: bling
     install:
